@@ -18,7 +18,7 @@ func ConsultoRelacion(relacion models.Relacion) (bool, error) {
 
 	condicion := bson.M{
 		"usuarioId":         relacion.UsuarioID,
-		"usuarioRelacionId": relacion.UsuarioRelacionID,
+		"usuarioRelacionID": relacion.UsuarioRelacionID,
 	}
 
 	var resultado models.Relacion
