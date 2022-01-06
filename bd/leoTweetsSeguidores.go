@@ -18,12 +18,12 @@ func LeoTweetsSeguidores(ID string, pagina int) ([]models.DevuelvoTweetsSeguidor
 
 	// Framework de mongo "aggregate"
 	condiciones := make([]bson.M, 0)
-	condiciones = append(condiciones, bson.M{"$match": bson.M{"usuarioid": ID}})
+	condiciones = append(condiciones, bson.M{"$match": bson.M{"usuarioId": ID}})
 	condiciones = append(condiciones, bson.M{
 		"$lookup": bson.M{
 			"from":         "tweet",
-			"localField":   "usuariorelacionid",
-			"foreignField": "userid",
+			"localField":   "usuarioRelacionID",
+			"foreignField": "userId",
 			"as":           "tweet",
 		}})
 	condiciones = append(condiciones, bson.M{"$unwind": "$tweet"})
